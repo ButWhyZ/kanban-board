@@ -3,12 +3,12 @@ function addItem() {
     if (item) {                                
         const li = document.createElement("li"); 
         li.textContent = item;                 
-        document.getElementById("list").appendChild(li);
+        document.getElementById("glist").appendChild(li);
     }
 }
 
 function removeItem() {
-    const list = document.getElementById("list");   
+    const list = document.getElementById("glist");   
     const last = list.lastElementChild;             
     if (last) list.removeChild(last);  
 }
