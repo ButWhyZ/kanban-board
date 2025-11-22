@@ -1,14 +1,31 @@
 // Importing React's useState hook and the CSS styles
-import { useState } from 'react';   // useState is a React hook used to manage state
-import './styles.css';             // Importing the styles you previously had in style.css
-
+import { useState } from "react";   // useState is a React hook used to manage state
+import "./App.css";             // Importing the styles you previously had in style.css
+import { ItemList } from "./Components/ItemList";
 // Defining the App component — this is the main part of your React application
+function App(){
+  const [items, setItems] = useState(["item1", "item2"]);
+
+    const add = () =>setItems([...items, `item${items.length+1}`]);
+    const remove = (idx) =>setItems(items.filter((_,i)=> i != idx ));
+    return (
+      <div>
+        <ItemList items={items} setItems={setItems}></ItemList>
+        <button onClick={add}>Add!</button>
+        <button onClick={remove}>Remove!</button>
+      </div>
+  );
+}
+
+export default App;
+/*
 export default function App() {
+  
   const [items, setItems] = useState(["eggs","chicken","beef"]);
     const add = () => {
     setItems([...items,"food"]);
   };
-
+  
   const remove = () => {
     if (items.length > 0) {
       setItems(items.slice(0, -1));
@@ -67,3 +84,4 @@ export default function App() {
     </div>
   );
 };
+*/
